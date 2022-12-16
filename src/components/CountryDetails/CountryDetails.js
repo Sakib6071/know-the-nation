@@ -90,7 +90,7 @@ const CountryDetails = () => {
         </div>
       ) : (
         <h1 className="my-10 font-semibold text-center text-3xl text-red-600">
-          Not Found | 404{" "}
+          Not Found | 404
         </h1>
       )}
     </div>
