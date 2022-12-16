@@ -8,6 +8,10 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);
+
+  const handleSearch =()=>{
+   
+  }
   return (
     <div className="my-10">
       <p className="text-3xl text-center font-semibold font-mono">
@@ -20,7 +24,7 @@ const Home = () => {
           type="text"
           placeholder="Country Name"
         ></input>
-        <button className="border rounded-r-lg bg-green-700 text-white ml-2 py-2 px-3 my-3 text-xl">
+        <button onClick={handleSearch} className="border rounded-r-lg bg-green-700 text-white ml-2 py-2 px-3 my-3 text-xl">
           Search
         </button>
       </div>
