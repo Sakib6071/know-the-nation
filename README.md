@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Know The Nation project using react, react-router, api and tailwind CSS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+See the project [Here](https://know-the-nation.netlify.app/).
+
+Live link [https://know-the-nation.netlify.app/](https://know-the-nation.netlify.app/)
 
 ## Available Scripts
 
