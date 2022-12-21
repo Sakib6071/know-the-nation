@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const ShowCountry = (props) => {
@@ -9,6 +8,7 @@ const ShowCountry = (props) => {
     navigate(path)
 
   }
+
   return (
     <div className="grid grid-cols-3 border border-green-700 rounded-lg">
       <div className="col-span-2 ml-2 flex align-middle justify-center items-center">

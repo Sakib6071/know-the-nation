@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ShowCountry from "../ShowCountry/ShowCountry";
+import Spinner from "../Spinner/Spinner";
 
 const Home = () => {
   const inputRef = useRef(null)
@@ -23,6 +24,9 @@ const Home = () => {
 
 
   return (
+<div>
+{
+  countries.length? (
     <div className="my-10">
       <p className="text-3xl text-center font-semibold font-mono">
         There is information for {countries?.length} countries.
@@ -44,7 +48,9 @@ const Home = () => {
           <ShowCountry key={country.cca3} country={country}></ShowCountry>
         ))}
       </div>
-    </div>
+    </div>):(<Spinner></Spinner>)
+}
+</div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const CountryDetails = () => {
   const { countryName } = useParams();
@@ -7,12 +8,15 @@ const CountryDetails = () => {
   const [details, setDetails] = useState([]);
   useEffect(() => {
     const url = `https://restcountries.com/v3.1/name/${countryName}`;
+    
     fetch(url)
       .then((res) => res.json())
       .then((data) => setDetails(data[0]));
+     
   }, []);
 
   return (
+
     <div>
       {details?.name?.common ? (
         <div>
@@ -89,9 +93,7 @@ const CountryDetails = () => {
           </div>
         </div>
       ) : (
-        <h1 className="my-10 font-semibold text-center text-3xl text-red-600">
-          Not Found | 404
-        </h1>
+        <Spinner></Spinner>
       )}
     </div>
   );

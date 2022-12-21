@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home'
 import NotFound from './components/NotFound/NotFound';
+import Spinner from './components/Spinner/Spinner';
 
 function App() {
   return (
