@@ -1,18 +1,21 @@
+import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NotFound from "../NotFound/NotFound";
 import Spinner from "../Spinner/Spinner";
 
 const CountryDetails = () => {
   const { countryName } = useParams();
 
   const [details, setDetails] = useState([]);
+  const [loading,setLoading] = useState(false)
   useEffect(() => {
     const url = `https://restcountries.com/v3.1/name/${countryName}`;
-    
+    setLoading(true)
     fetch(url)
       .then((res) => res.json())
       .then((data) => setDetails(data[0]));
-     
+     setLoading(false)
   }, []);
 
   return (
@@ -93,7 +96,7 @@ const CountryDetails = () => {
           </div>
         </div>
       ) : (
-        <Spinner></Spinner>
+        <NotFound></NotFound>
       )}
     </div>
   );
