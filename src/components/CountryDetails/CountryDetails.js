@@ -23,8 +23,8 @@ const CountryDetails = () => {
     <div>
       {details?.name?.common ? (
         <div>
-          <h1 className=" text-center text-3xl my-10 font-semibold text-green-700">
-            Details About {details?.name?.common}
+          <h1 className=" text-center text-3xl my-10 font-semibold text-black">
+            Details About <span className="text-center text-4xl my-10 font-semibold text-green-700">{details?.name?.common}</span>
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 mx-10 my-10 bg-slate-100 py-5 px-1 rounded-lg">
             <div className=" md:order-2 my-auto">
@@ -96,7 +96,7 @@ const CountryDetails = () => {
           </div>
         </div>
       ) : (
-        <NotFound></NotFound>
+        <Spinner></Spinner>
       )}
     </div>
   );

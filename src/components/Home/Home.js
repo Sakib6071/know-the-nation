@@ -6,7 +6,7 @@ import Spinner from "../Spinner/Spinner";
 const Home = () => {
   const inputRef = useRef(null)
   const navigate = useNavigate()
-  const [searchText, setSearchText]=useState('')
+  const [alertText, setAlertText]=useState('')
   const [countries, setCountries] = useState([]);
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -16,10 +16,15 @@ const Home = () => {
 
 
   const handleSearch =()=>{
-    setSearchText(inputRef.current.value)
-    console.log(inputRef.current.value);
-    const path = `/country-details/${inputRef.current.value}`
-    navigate(path)
+    const countryName = countries.find(country => (country.name.common).toLowerCase() == (inputRef.current.value).toLowerCase())
+    if(countryName){
+      const path = `/country-details/${inputRef.current.value}`
+      navigate(path)
+    }
+    else{
+      setAlertText("Please enter the right name of country")
+    }
+    
   }
 
 
@@ -42,6 +47,9 @@ const Home = () => {
         <button onClick={handleSearch} className="border rounded-r-lg bg-green-700 text-white ml-2 py-2 px-3 my-3 text-xl">
           Search
         </button>
+      </div>
+      <div>
+        <p className="text-center font-semibold text-red-500 text-3xl">{alertText}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-10">
         {countries.map((country) => (
